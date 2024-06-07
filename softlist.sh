@@ -22,11 +22,14 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 brew install rbenv
 brew install rbenv-gemset
+rbenv install 3.0.0
 
 brew install rust
 brew install go
 
 brew install maven
+brew install tomcat
+
 
 #多机ssh查看并执行
 brew install csshX
@@ -71,7 +74,7 @@ brew cask install virtualbox
 #切换python
 brew install pyenv
 pyenv install 2.7
-pyenv install 3.4.3
+pyenv install 3.9.1
 pyenv rehash
 brew install pyenv-virtualenv
 
