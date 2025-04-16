@@ -30,11 +30,14 @@ brew install go
 brew install maven
 brew install tomcat
 
-
 #多机ssh查看并执行
 brew install csshX
 
 brew install vim
+
+brew install helix
+brew install zed
+
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #ssh proxy soft
