@@ -24,7 +24,7 @@ brew install rbenv
 brew install rbenv-gemset
 rbenv install 3.0.0
 
-brew install rust
+brew install rustup
 brew install go
 
 brew install maven
@@ -34,11 +34,12 @@ brew install tomcat
 brew install csshX
 
 brew install vim
-
 brew install helix
 brew install zed
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#vim plugin
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #ssh proxy soft
 brew  install corkscrew
@@ -71,18 +72,22 @@ brew cask install iterm2
 #docker and manage gui
 brew cask install docker
 brew cask install Kitematic
+brew install container
+
 #虚拟机
 brew cask install virtualbox
 
 #切换python
 brew install pyenv
-pyenv install 2.7
-pyenv install 3.9.1
+# pyenv install 2.7
+pyenv install 3.12.0
 pyenv rehash
 brew install pyenv-virtualenv
+brew install uv
 
 #切换ruby
-curl -sSL https://get.rvm.io | bash
+# curl -sSL https://get.rvm.io | bash
+# brew install rbenv
 
 #安装gnu工具替代mac的BSD工具
 # GNU Coreutils
