@@ -19,6 +19,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'girishji/vimsuggest'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
