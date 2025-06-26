@@ -11,7 +11,7 @@ brew install git
 brew install tig
 brew install git-flow
 brew install git-extras
-brew install svn
+# brew install svn
 brew install autojump
 brew install htop
 brew install tmux
@@ -36,6 +36,7 @@ brew install csshX
 brew install vim
 brew install helix
 brew install zed
+brew install bat
 
 #vim plugin
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
