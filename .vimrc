@@ -72,6 +72,8 @@ let s:vim_suggest.search = {
     \ 'prefixlen': 1,
     \ }
 
+augroup VimLSPConfig
+
 "LSP Config 
 " Clangd language server
 autocmd User LspSetup call LspAddServer([#{
@@ -99,3 +101,44 @@ autocmd User LspSetup call LspAddServer([#{
 	\    args: ['serve'],
 	\    syncInit: v:true
 	\  }])
+augroup END
+
+" This is VimL syntax
+let g:my_config_message = "VimL variable"
+
+" 在 VimL 文件中直接定义 Vim9 script 函数
+" 注意：函数内部是 Vim9 script 语法
+def MyInlineVim9Function(name: string): void
+  var greeting: string = 'Hello, ' .. name .. ' from inline Vim9!'
+  echomsg greeting
+  
+var options = {
+    completor: { shuffleEqualPriority: true, postfixHighlight: true },
+    buffer: { enable: true, priority: 10, urlComplete: true, envComplete: true },
+    abbrev: { enable: true, priority: 10 },
+    lsp: { enable: true, priority: 10, maxCount: 5 },
+    omnifunc: { enable: false, priority: 8, filetypes: ['python', 'javascript'] },
+    vsnip: { enable: true, priority: 11 },
+    vimscript: { enable: true, priority: 11 },
+    ngram: {
+        enable: true,
+        priority: 10,
+        bigram: false,
+        filetypes: ['text', 'help', 'markdown'],
+        filetypesComments: ['c', 'cpp', 'python', 'java'],
+    },
+}
+enddef
+
+" 你也可以定义一个自动命令，在Vim启动时调用这个函数
+" autocmd VimEnter * call MyInlineVim9Function('User')
+nnoremap <leader>mv9 :call MyInlineVim9Function('User')<CR>
+
+" 示例：一个简单的命令，显示一条消息
+command! MyGreet echomsg "Hello from your custom command!"
+
+" 示例：一个带参数的命令
+" <args> 会捕获命令后面的所有参数
+command! -nargs=* MyEcho echomsg "You typed: " . <q-args>
+
+command! -nargs=* MyFunc :call MyInlineVim9Function(<q-args>)
