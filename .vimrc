@@ -24,6 +24,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'girishji/vimsuggest'
+Plug 'girishji/vimcomplete'
+Plug 'yegappan/lsp'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -70,3 +72,30 @@ let s:vim_suggest.search = {
     \ 'prefixlen': 1,
     \ }
 
+"LSP Config 
+" Clangd language server
+autocmd User LspSetup call LspAddServer([#{
+	\    name: 'clangd',
+	\    filetype: ['swift','c', 'cpp','objective-c'],
+	\    path: substitute(system('xcrun -f sourcekit-lsp'), '\n$', '', ''),
+	\    args: []
+	\  }])
+
+
+" Rust language server
+autocmd User LspSetup call LspAddServer([#{
+	\    name: 'rustlang',
+	\    filetype: ['rust'],
+	\    path: '/opt/homebrew/opt/rustup/bin/rust-analyzer',
+	\    args: [],
+	\    syncInit: v:true
+	\  }])
+
+" Go language server
+autocmd User LspSetup call LspAddServer([#{
+	\    name: 'golang',
+	\    filetype: ['go', 'gomod'],
+	\    path: expand('~/go/bin/gopls'),
+	\    args: ['serve'],
+	\    syncInit: v:true
+	\  }])
