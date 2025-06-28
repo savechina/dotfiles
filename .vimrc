@@ -1,10 +1,13 @@
 
 " 配置文件
+" 关闭 Vi 兼容模式，启用 Vim 特有功能
 set nocompatible
 
+" 启动插件
 filetype on
-set number
+filetype plugin indent on
 syntax enable
+set number
 
 " 插件管理器
 call plug#begin('~/.vim/plugged')
@@ -26,16 +29,14 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-" 启动插件
-filetype plugin indent on
 
-" Start NERDTree and leave the cursor in it.
-"autocmd VimEnter * NERDTree
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" NERDTree config 
+" 当打开文件时，如果 NERDTree 已打开，则自动定位到该文件
+" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+" 关闭 NERDTree 的快捷键（\n）
+nmap <Leader>n :NERDTreeToggle<CR>
 
-" VimSuggest 
+" VimSuggest config
 let s:vim_suggest = {}
 let s:vim_suggest.cmd = {
     \ 'enable': v:true,
@@ -49,7 +50,7 @@ let s:vim_suggest.cmd = {
     \ 'trigger': 't',
     \ 'reverse': v:false,
     \ 'prefixlen': 1,
-\ }
+    \ }
 
 let s:vim_suggest.search = {
     \ 'enable': v:true,
@@ -67,5 +68,5 @@ let s:vim_suggest.search = {
     \ 'highlight': v:true,
     \ 'trigger': 't',
     \ 'prefixlen': 1,
-\ }
+    \ }
 
