@@ -22,7 +22,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree' 
 Plug 'terryma/vim-multiple-cursors'
 Plug 'hdima/python-syntax'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 Plug 'girishji/vimsuggest'
 Plug 'girishji/vimcomplete'
 Plug 'yegappan/lsp'
@@ -37,6 +37,18 @@ call plug#end()
 " autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 " 关闭 NERDTree 的快捷键（\n）
 nmap <Leader>n :NERDTreeToggle<CR>
+
+" FZF config
+" Use ripgrep for file search
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+
+" fzf keymap 
+nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <Leader>/ :Rg<CR>
+nnoremap <Leader>: :Commands<CR>
+nnoremap <Leader>G :Rg <C-R><C-W><CR>
+nnoremap <C-h> :History<CR>
 
 " VimSuggest config
 let s:vim_suggest = {}

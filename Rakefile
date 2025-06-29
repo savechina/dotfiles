@@ -9,6 +9,7 @@ task :dot do
                    '.zprofile',
                    '.profile',
                    '.gitconfig',
+                   '.vimrc',
                    '.ssh',
                    '.m2/setting.xml']
 
