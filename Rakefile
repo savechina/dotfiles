@@ -38,3 +38,26 @@ task :dot do
     sh "cp -fr #{from_file}  #{to_dir}"
   end
 end
+
+namespace :vim do
+  desc 'backup vimrc file to dotfiles'
+  task :backup do
+     puts "vimrc backup"
+     home=Dir.home
+     puts home
+
+     file=".vimrc"
+     sh "cp #{home}/#{file} ./"
+  end
+
+  desc 'restore  vimrc file to $HOME'
+  task :restore do
+    puts "vimrc resotre to $HOME:#{Dir.home}"
+     
+    home=Dir.home
+    puts home
+
+    file=".vimrc"
+    sh "cp ./#{file} #{home}/"
+  end
+ end
