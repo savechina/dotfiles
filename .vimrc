@@ -2,6 +2,8 @@
 " 配置文件
 " 关闭 Vi 兼容模式，启用 Vim 特有功能
 set nocompatible
+set encoding=utf-8
+
 
 " 启动插件
 filetype on
