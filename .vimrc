@@ -102,7 +102,17 @@ autocmd User LspSetup call LspAddServer([#{
 	\    filetype: ['rust'],
 	\    path: '/opt/homebrew/opt/rustup/bin/rust-analyzer',
 	\    args: [],
-	\    syncInit: v:true
+	\    syncInit: v:true,
+	\  initializationOptions: #{
+    	\    inlayHints: #{
+    	\      typeHints: #{
+    	\        enable: v:true
+    	\      },
+    	\      parameterHints: #{
+    	\        enable: v:true
+    	\      }
+    	\    },
+    	\  }
 	\  }])
 
 " Go language server
@@ -111,7 +121,20 @@ autocmd User LspSetup call LspAddServer([#{
 	\    filetype: ['go', 'gomod'],
 	\    path: expand('~/go/bin/gopls'),
 	\    args: ['serve'],
-	\    syncInit: v:true
+	\    syncInit: v:true,
+    	\   workspaceConfig: #{
+    	\     gopls: #{
+    	\       hints: #{
+    	\         assignVariableTypes: v:true,
+    	\         compositeLiteralFields: v:true,
+    	\         compositeLiteralTypes: v:true,
+    	\         constantValues: v:true,
+    	\         functionTypeParameters: v:true,
+    	\         parameterNames: v:true,
+    	\         rangeVariableTypes: v:true
+    	\       }
+    	\     }
+    	\   }
 	\  }])
 augroup END
 
